@@ -7,3 +7,4 @@ python:
 install:
     - pip install blockchain
 # command to run tests
+script: echo foo
