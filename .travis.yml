@@ -9,5 +9,5 @@ install:
     - cd api-v1-client-python
     - python setup.py install
 
-# test
-echo "TO DO"
+# command to run tests
+script: nosetests
