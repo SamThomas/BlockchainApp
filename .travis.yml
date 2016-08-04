@@ -8,3 +8,6 @@ install:
     - git clone https://github.com/blockchain/api-v1-client-python
     - cd api-v1-client-python
     - python setup.py install
+
+# test
+echo "TO DO"
