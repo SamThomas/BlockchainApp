@@ -1,7 +1,7 @@
 import sys
 from Tools.scripts.treesync import raw_input
 
-#Blockchian.info libraries
+# Blockchian.info libraries
 from blockchain import exchangerates
 
 
@@ -11,7 +11,7 @@ ticker = exchangerates.get_ticker()
 for k in ticker:
     print (k, ticker[k].p15min)
 
-#Bitcoin converter
+# Bitcoin converter
 
 try:
     amount_to_be_converted = float(raw_input('Amount to be converted in Bitcoins:'))
