@@ -5,7 +5,5 @@ python:
 
 # command to install dependencies
 install:
-    - pip install .
-    - pip install -r requirements.txt
     - pip install blockchain
 # command to run tests
