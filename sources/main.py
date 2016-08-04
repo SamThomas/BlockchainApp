@@ -3,9 +3,7 @@ from Tools.scripts.treesync import raw_input
 
 #Blockchian.info libraries
 from blockchain import exchangerates
-from blockchain import wallet
-from blockchain import createwallet
-from blockchain import statistics
+
 
 ticker = exchangerates.get_ticker()
 
