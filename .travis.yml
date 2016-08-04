@@ -5,4 +5,6 @@ python:
 
 # command to install dependencies
 install:
-    - pip install blockchain
+    - git clone https://github.com/blockchain/api-v1-client-python
+    - cd api-v1-client-python
+    - python setup.py install
