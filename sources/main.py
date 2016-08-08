@@ -20,12 +20,12 @@ try:
 except ValueError:
     print("Not a number")
 
-
 try:
-    currency_to_be_converted = input('Currency to be converted in Bitcoins: EUR ')
+    currency_to_be_converted = input('Currency to be converted in Bitcoins: EUR, USD, GBP, JPY, CAD ')
 except ValueError:
     print("Not a currency name")
 
 btc_amount = exchangerates.to_btc(currency_to_be_converted, amount_to_be_converted)
 
 print(btc_amount)
+print("************************ END ***********************")
