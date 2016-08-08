@@ -13,10 +13,19 @@ for k in ticker:
 
 # Bitcoin converter
 
+print("*************Welcome to the Bitcoin converter**************")
+
 try:
     amount_to_be_converted = float(raw_input('Amount to be converted in Bitcoins:'))
 except ValueError:
     print("Not a number")
 
-btc_amount = exchangerates.to_btc('EUR', amount_to_be_converted)
+
+try:
+    currency_to_be_converted = input('Currency to be converted in Bitcoins: EUR ')
+except ValueError:
+    print("Not a currency name")
+
+btc_amount = exchangerates.to_btc(currency_to_be_converted, amount_to_be_converted)
+
 print(btc_amount)
