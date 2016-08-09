@@ -13,6 +13,7 @@ install:
     - cd api-v1-client-python
     - python setup.py install
     - pip install block-io
+    - pip install bitcoin-python
 
 # command to run tests
 script: nosetests
