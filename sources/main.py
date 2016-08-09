@@ -1,8 +1,14 @@
 import sys
 from Tools.scripts.treesync import raw_input
 
-# Blockchian.info libraries
+# Blockchian.info API
 from blockchain import exchangerates
+
+# Block.io API
+from block_io import BlockIo
+
+# Bitcoin-python API
+
 
 
 ticker = exchangerates.get_ticker()
