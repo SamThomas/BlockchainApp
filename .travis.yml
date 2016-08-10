@@ -13,7 +13,7 @@ install:
     - cd api-v1-client-python
     - python setup.py install
     - pip install block-io
-    - apt-get install libssl-dev #required for python-bitcoinlib API
+    - sudo apt-get install libssl-dev #required for python-bitcoinlib API
     - git clone https://github.com/petertodd/python-bitcoinlib
     - cd python-bitcoinlib
     - python setup.py install
