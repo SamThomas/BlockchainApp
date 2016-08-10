@@ -14,9 +14,9 @@ install:
     - python setup.py install
     - pip install block-io
     #- sudo apt-get install libssl-dev #required for python-bitcoinlib API
-    - git clone https://github.com/petertodd/python-bitcoinlib
-    - cd python-bitcoinlib
-    - python setup.py install
+    #- git clone https://github.com/petertodd/python-bitcoinlib
+    #- cd python-bitcoinlib
+    #- python setup.py install
 
 # command to run tests
 script: nosetests
