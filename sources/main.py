@@ -7,7 +7,7 @@ from blockchain import exchangerates
 # Block.io API
 from block_io import BlockIo
 
-# Bitcoin-python API
+# Python-bitcoinlib
 
 
 
