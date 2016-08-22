@@ -6,6 +6,7 @@ import time
 # Blockchain.info API
 from blockchain import exchangerates
 
+import matplotlib
 
 ticker = exchangerates.get_ticker()
 
@@ -69,7 +70,9 @@ while 1: # Infinite loop
     print("Blocks:", blocks)
     print("Exchange EUR", exchangeEUR)
     print("Exchange USD: ", exchangeUSD)
-    print("Currency USD", currencyUSD)
-    print("Currency EUR: ", currencyEUR)
     print("Price: USD", priceUSD)
     print("Price: EUR", priceEUR)
+
+# Plotting the Bitcoin <=> Exchange rate using Matplotlib
+
+matplotlib.test()
