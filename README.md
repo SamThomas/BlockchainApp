@@ -1,4 +1,4 @@
-## Bitcoin toolkit desktop application
+**Bitcoin toolkit desktop application**
 _______________________________________
 _README file: Work in progress_
 
