@@ -1,10 +1,8 @@
-import sys
-from Tools.scripts.treesync import raw_input
 import requests
 import time
 import matplotlib
 
-print("++++++++++++++ Bbtcdash ++++++++++++++++")
+print("++++++++++++++ Btc toolkit app ++++++++++++++++")
 
 while 1: # Infinite loop
 
