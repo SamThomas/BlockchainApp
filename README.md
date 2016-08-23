@@ -5,5 +5,5 @@ _README file: Work in progress_
 
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?maxAge=2592000?style=plastic)]()
 
-Bitcoin app that displays information about Bitcoin <=> EUR/USD exchange rates from https://chain.so in the terminal.
-Refreshed every 5 seconds.
+Bitcoin app that displays analytical graphs of Bitcoin <=> EUR/USD exchange rates based on data retrieved from https://chain.so.
+Refreshed every minute.
