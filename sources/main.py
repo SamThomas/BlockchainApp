@@ -1,10 +1,12 @@
 import requests
 import time
-import matplotlib
+import matplotlib.pyplot as plt
+import datetime
 
 print("++++++++++++++ Btc toolkit app ++++++++++++++++")
 
-while 1: # Infinite loop
+#while 1: # Infinite loop
+for y in range(2):
 
     # get BTC info
     response = requests.get('https://chain.so/api/v2/get_info/BTC', verify=True)
@@ -44,4 +46,25 @@ while 1: # Infinite loop
 
 # Plotting the Bitcoin <=> Exchange rate using Matplotlib
 
-matplotlib.test()
+# Storing bitcoin data
+euro_value = []
+
+for x in range(10):
+    #  get EUR prices, exchange is BTC-E
+    response = requests.get('https://chain.so/api/v2/get_price/BTC/EUR', verify=True)
+    if response.status_code == 200:
+        info = response.json()
+        priceEUR = info['data']['prices'][0]['price']
+        euro_value.append(priceEUR)
+
+    time.sleep(60)
+    current_time = datetime.datetime.now()
+    print("{:%H:%M}".format(current_time), "EUR", euro_value[x])
+
+fig1 = plt.figure()
+plt.plot(euro_value)
+plt.title('Exchange rate Bitcoins EUR')
+plt.xlabel('time')
+plt.ylabel('EUR')
+plt.grid(True)
+plt.show()
