@@ -7,4 +7,4 @@ _README file: Work in progress_
 
 Bitcoin app that displays analytical graphs of Bitcoin <=> EUR/USD exchange rates based on data retrieved from https://chain.so.
 
-Refreshed every minute.
+Refreshed every second.
