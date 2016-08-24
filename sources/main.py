@@ -6,7 +6,7 @@ import datetime
 print("++++++++++++++ Btc toolkit app ++++++++++++++++")
 
 #while 1: # Infinite loop
-for y in range(2):
+for y in range(1):
 
     # get BTC info
     response = requests.get('https://chain.so/api/v2/get_info/BTC', verify=True)
@@ -49,7 +49,7 @@ for y in range(2):
 # Storing bitcoin data
 euro_value = []
 
-for x in range(10):
+for x in range(30):
     #  get EUR prices, exchange is BTC-E
     response = requests.get('https://chain.so/api/v2/get_price/BTC/EUR', verify=True)
     if response.status_code == 200:
@@ -57,9 +57,12 @@ for x in range(10):
         priceEUR = info['data']['prices'][0]['price']
         euro_value.append(priceEUR)
 
-    time.sleep(60)
-    current_time = datetime.datetime.now()
-    print("{:%H:%M}".format(current_time), "EUR", euro_value[x])
+        time.sleep(1)
+        current_time = datetime.datetime.now()
+        print("{:%H:%M:%S}".format(current_time), "EUR", euro_value[x])
+    else:
+        print("Error while retreiving data from chain.so | Status code: ", response.status_code)
+
 
 fig1 = plt.figure()
 plt.plot(euro_value)
