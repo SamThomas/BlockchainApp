@@ -25,7 +25,7 @@ for y in range(1):
 euro_value = []
 usd_value = []
 
-for x in range(30):
+for x in range(5):
 
     #  get EUR prices, exchange is BTC-E
     response = requests.get('https://chain.so/api/v2/get_price/BTC/EUR', verify=True)
@@ -59,8 +59,8 @@ for x in range(30):
         print("Error while retreiving data from chain.so | Status code: ", response.status_code)
 
 fig1 = plt.figure()
-plt.plot(euro_value)
-plt.plot(usd_value)
+# red dashes, blue squares and green triangles
+plt.plot(euro_value, 'r--', usd_value, 'bs')
 plt.title('Exchange rate Bitcoins EUR')
 plt.xlabel('time')
 plt.ylabel('EUR')
