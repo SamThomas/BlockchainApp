@@ -58,6 +58,32 @@ for x in range(5):
     else:
         print("Error while retreiving data from chain.so | Status code: ", response.status_code)
 
+def connectToCoinbase():
+    response = requests.get('https://chain.so/api/v2/get_price/BTC/USD', verify=True)
+
+def connectToBtcE():
+    response = requests.get('https://chain.so/api/v2/get_price/BTC/EUR', verify=True)
+
+def getExchangeEUR(exchangeEUR):
+    exchangeEUR = info['data']['prices'][0]['exchange']
+
+def getPriceEUR(priceEUR):
+    priceEUR = info['data']['prices'][0]['price']
+
+def getCurrencyEUR(currencyEUR):
+    currencyEUR = info['data']['prices'][0]['price_base']
+
+def getExchangeUSD(exchangeUSD):
+    exchangeUSD = info['data']['prices'][1]['exchange']
+
+def getPriceUSD(priceUSD):
+    priceUSD = info['data']['prices'][1]['price']
+
+def getCurrencyUSD(currencyUSD):
+    currencyUSD = info['data']['prices'][1]['price_base']
+
+
+# PLOTS
 fig1 = plt.figure()
 # red dashes, blue squares and green triangles
 plt.plot(euro_value, 'r--', usd_value, 'bs')
