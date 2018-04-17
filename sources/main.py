@@ -1,5 +1,6 @@
 import requests
 import time
+<<<<<<< HEAD
 import matplotlib
 from coinbase.wallet.client import Client
 
@@ -9,10 +10,15 @@ client = Client(<api_key>,
                 api_version='YYYY-MM-DD');
 
 payment_methods = client.get_payment_methods()
+=======
+import matplotlib.pyplot as plt
+import datetime
+>>>>>>> origin/master
 
 print("++++++++++++++ Btc toolkit app ++++++++++++++++")
 
-while 1: # Infinite loop
+#while 1: # Infinite loop
+for y in range(1):
 
     # get BTC info
     response = requests.get('https://chain.so/api/v2/get_info/BTC', verify=True)
@@ -24,32 +30,77 @@ while 1: # Infinite loop
         blocks = info['data']['blocks']
         blocks = str(blocks)  # needs to be a string for curses to display
 
-    # get USD prices, exchange is Coinbase
-    response = requests.get('https://chain.so/api/v2/get_price/BTC/USD', verify=True)
-    if response.status_code == 200:
-        info = response.json()
-        exchangeUSD = info['data']['prices'][1]['exchange']
-        currencyUSD = info['data']['prices'][1]['price_base']
-        priceUSD = info['data']['prices'][1]['price']
-    #
+
+# Plotting the Bitcoin <=> Exchange rate using Matplotlib
+
+# Storing bitcoin data
+euro_value = []
+usd_value = []
+
+for x in range(5):
+
     #  get EUR prices, exchange is BTC-E
     response = requests.get('https://chain.so/api/v2/get_price/BTC/EUR', verify=True)
     if response.status_code == 200:
         info = response.json()
+        # Get EUR infos
         exchangeEUR = info['data']['prices'][0]['exchange']
         currencyEUR = info['data']['prices'][0]['price_base']
         priceEUR = info['data']['prices'][0]['price']
+        euro_value.append(priceEUR)
+        time.sleep(1)
+        current_time = datetime.datetime.now()
+        print("{:%H:%M:%S}".format(current_time), "EUR", euro_value[x])
+    elif response.status_code == 429:
+        print("Data polling restriction from chain.so | Status code: ", response.status_code)
+    else:
+        print("Error while retreiving data from chain.so | Status code: ", response.status_code)
 
-    print(time.strftime("%a, %d %b %Y %H:%M:%S"))
+    # get USD prices, exchange is Coinbase
+    response = requests.get('https://chain.so/api/v2/get_price/BTC/USD', verify=True)
+    if response.status_code == 200:
+        info = response.json()
+        # Get USD infos
+        exchangeUSD = info['data']['prices'][1]['exchange']
+        currencyUSD = info['data']['prices'][1]['price_base']
+        priceUSD = info['data']['prices'][1]['price']
+        usd_value.append(priceUSD)
+    elif response.status_code == 429:
+        print("Data polling restriction from chain.so | Status code: ", response.status_code)
+    else:
+        print("Error while retreiving data from chain.so | Status code: ", response.status_code)
 
-    print("Name:", name)
-    print("Network:", network)
-    print("Blocks:", blocks)
-    print("Exchange EUR", exchangeEUR)
-    print("Exchange USD: ", exchangeUSD)
-    print("Price: USD", priceUSD)
-    print("Price: EUR", priceEUR)
+def connectToCoinbase():
+    response = requests.get('https://chain.so/api/v2/get_price/BTC/USD', verify=True)
 
-# Plotting the Bitcoin <=> Exchange rate using Matplotlib
+def connectToBtcE():
+    response = requests.get('https://chain.so/api/v2/get_price/BTC/EUR', verify=True)
 
-matplotlib.test()
+def getExchangeEUR(exchangeEUR):
+    exchangeEUR = info['data']['prices'][0]['exchange']
+
+def getPriceEUR(priceEUR):
+    priceEUR = info['data']['prices'][0]['price']
+
+def getCurrencyEUR(currencyEUR):
+    currencyEUR = info['data']['prices'][0]['price_base']
+
+def getExchangeUSD(exchangeUSD):
+    exchangeUSD = info['data']['prices'][1]['exchange']
+
+def getPriceUSD(priceUSD):
+    priceUSD = info['data']['prices'][1]['price']
+
+def getCurrencyUSD(currencyUSD):
+    currencyUSD = info['data']['prices'][1]['price_base']
+
+
+# PLOTS
+fig1 = plt.figure()
+# red dashes, blue squares and green triangles
+plt.plot(euro_value, 'r--', usd_value, 'bs')
+plt.title('Exchange rate Bitcoins EUR')
+plt.xlabel('time')
+plt.ylabel('EUR')
+plt.grid(True)
+plt.show()
