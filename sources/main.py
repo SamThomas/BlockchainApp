@@ -1,6 +1,14 @@
 import requests
 import time
 import matplotlib
+from coinbase.wallet.client import Client
+
+
+client = Client(<api_key>,
+                <api_secret>,
+                api_version='YYYY-MM-DD');
+
+payment_methods = client.get_payment_methods()
 
 print("++++++++++++++ Btc toolkit app ++++++++++++++++")
 
