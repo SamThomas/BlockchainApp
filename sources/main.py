@@ -1,19 +1,14 @@
 import requests
 import time
-<<<<<<< HEAD
-import matplotlib
+import matplotlib.pyplot as plt
+import datetime
 from coinbase.wallet.client import Client
 
 
-client = Client(<api_key>,
-                <api_secret>,
-                api_version='YYYY-MM-DD');
+client = Client(api_key="API_KEY", api_secret="API_SECRET", api_version="YYYY-MM-DD");
 
-payment_methods = client.get_payment_methods()
-=======
-import matplotlib.pyplot as plt
-import datetime
->>>>>>> origin/master
+#payment_methods = client.get_payment_methods()
+
 
 print("++++++++++++++ Btc toolkit app ++++++++++++++++")
 
